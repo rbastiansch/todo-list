@@ -20,6 +20,7 @@ class AddTodo extends Component {
         <button type="button"
                 onClick={() => this.addTodo()} >Add Todo
         </button>
+        <p>{this.props.value.text}</p>
       </div>
     )
   }
