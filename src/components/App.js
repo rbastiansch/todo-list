@@ -4,10 +4,15 @@ import AddTodo from './AddTodo';
 
 class App extends Component {
   render() {
+    const { values, addTodo, removeTodo, clearTodos } = this.props;
     return (
       <div>
         <h2>Todos</h2>
-        <AddTodo value={this.props.value} addTodo={this.props.addTodo} />
+        <AddTodo values={values}
+                 addTodo={addTodo}
+                 removeTodo={removeTodo}
+                 clearTodos={clearTodos} 
+        />
       </div>
     )
   }
