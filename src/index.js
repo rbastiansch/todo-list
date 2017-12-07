@@ -8,30 +8,25 @@ import { addTodo, removeTodo, clearTodos } from "./actions/index";
 
 const store = createStore(todos);
 
-const render = () => ReactDOM.render(
-  <AppContainer>
-    <App values={store.getState()}
-         addTodo={prop => store.dispatch(addTodo(prop))}
-         removeTodo={prop => store.dispatch(removeTodo(prop))}
-         clearTodos={() => store.dispatch(clearTodos())}
-    />
-  </AppContainer>, document.getElementById('root')
-);
+const renderApp = (App) => {
+  ReactDOM.render(
+    <AppContainer>
+      <App values={store.getState()}
+           addTodo={prop => store.dispatch(addTodo(prop))}
+           removeTodo={prop => store.dispatch(removeTodo(prop))}
+           clearTodos={() => store.dispatch(clearTodos())}
+      />
+    </AppContainer> , document.getElementById('root')
+  );
+};
 
-render();
-store.subscribe(render);
+renderApp(App);
+store.subscribe(renderApp);
 
 if (module.hot) {
   module.hot.accept('./components/App', () => {
-    const App = require('./components/App').default;
-    ReactDOM.render(
-      <AppContainer>
-        <App values={store.getState()}
-             addTodo={prop => store.dispatch(addTodo(prop))}
-             removeTodo={prop => store.dispatch(removeTodo(prop))}
-             clearTodos={() => store.dispatch(clearTodos())}
-        />
-      </AppContainer>, document.getElementById('root')
-    );
+    const NextApp = require('./components/App').default;
+    renderApp(NextApp);
+    // store.subscribe(renderApp);
   })
 }

@@ -11,6 +11,6 @@ const server = new WebpackDevServer(webpack(config), {
   if (error) {
     return console.log(error);
   }
-
+  
   console.log('Listening on http://localhost:3000');
 });

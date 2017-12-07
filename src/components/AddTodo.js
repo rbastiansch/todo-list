@@ -29,7 +29,7 @@ class AddTodo extends Component {
         <input type="text" placeholder="add todo"
                onChange={event => this.setState({text: event.target.value})} />
         <button type="button"
-                onClick={() => this.addTodo()} >Add Todo
+                onClick={() => this.addTodo()} >Add todo
         </button>
         {
           checkObject ? 
@@ -38,7 +38,7 @@ class AddTodo extends Component {
                 <div key={key}>
                   <p>{value.text}</p>
                   <button type="button"
-                          onClick={() => this.removeTodo(value.id)} >removeTodo
+                          onClick={() => this.removeTodo(value.id)} >remove Todo
                   </button>
                 </div>
               )
@@ -47,7 +47,7 @@ class AddTodo extends Component {
         }
         <div>
           <button type="button"
-                  onClick={() => this.clearTodos()}>Clear All Todos
+                  onClick={() => this.clearTodos()}>Clear all todos
           </button>
         </div>
       </div>
