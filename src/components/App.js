@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 
 import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+import '../stylesheets/style.scss';
 
 class App extends Component {
   render() {
     const { values, addTodo, removeTodo, clearTodos } = this.props;
     return (
-      <div>
-        <h2>Todo</h2>
-        <AddTodo values={values}
-                 addTodo={addTodo}
-                 removeTodo={removeTodo}
-                 clearTodos={clearTodos} 
+      <div className="app">
+        <h2 className="title">Todo</h2>
+        <AddTodo addTodo={addTodo} />
+        <TodoList values={values}
+                  removeTodo={removeTodo}
+                  clearTodos={clearTodos}
         />
       </div>
     )
