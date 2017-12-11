@@ -1,6 +1,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const CLEAR_TODOS = 'CLEAR_TODOS';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
 
 let nextTodoId = 0;
 export const addTodo = (text) => {
@@ -15,6 +16,14 @@ export const addTodo = (text) => {
 export const removeTodo = (id) => {
   const action = {
     type: REMOVE_TODO,
+    id
+  }
+  return action;
+}
+
+export const completeTodo = (id) => {
+  const action = {
+    type: COMPLETE_TODO,
     id
   }
   return action;

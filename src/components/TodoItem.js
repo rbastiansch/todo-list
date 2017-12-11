@@ -5,11 +5,21 @@ class TodoItem extends Component {
     this.props.removeTodo(id);
   }
 
+  completeTodo(id) {
+    this.props.completeTodo(id);
+  }
+
   render() {
     const { value } = this.props;
+    const textDecoration = value.completed ? 'line-through' : 'none';
     return (
       <div className="todo-item">
-        <p>{value.text}</p>
+        <p style={{textDecoration}}>{value.text}</p>
+        {
+          !value.completed ? <button className="button" type="button"
+                                    onClick={() => this.completeTodo(value.id)} >Complete Todo</button>
+          : null
+        }
         <button className="button" type="button"
                 onClick={() => this.removeTodo(value.id)} >Remove
         </button>

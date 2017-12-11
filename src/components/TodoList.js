@@ -7,7 +7,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const { values, removeTodo } = this.props;
+    const { values, removeTodo, completeTodo } = this.props;
     const checkObject = !(Object.keys(values).length === 0 && values.constructor === Object);
     return (
       <div className="todo-list">
@@ -18,6 +18,7 @@ class TodoList extends Component {
                 <TodoItem key={key}
                           value={value}
                           removeTodo={removeTodo}
+                          completeTodo={completeTodo}
                 />
               )
             })
