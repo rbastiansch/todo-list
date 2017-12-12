@@ -15,11 +15,9 @@ class TodoItem extends Component {
     return (
       <div className="todo-item">
         <p style={{textDecoration}}>{value.text}</p>
-        {
-          !value.completed ? <button className="button" type="button"
-                                    onClick={() => this.completeTodo(value.id)} >Complete Todo</button>
-          : null
-        }
+        <button className="button" type="button"
+                onClick={() => this.completeTodo(value.id)} >Complete Todo
+        </button>
         <button className="button" type="button"
                 onClick={() => this.removeTodo(value.id)} >Remove
         </button>
