@@ -8,14 +8,14 @@ const removeById = (state = [], id) => {
 const todos = (state = [], action) => {
   switch(action.type) {
     case ADD_TODO:
-      return [...state, { text: action.text, id: action.id }]
+      return [ ...state, { text: action.text, id: action.id } ]
     case REMOVE_TODO:
       const todos = removeById(state, action.id);
       return todos;
     case CLEAR_TODOS:
       return {}
     default:
-      return { ...state }
+      return state
   }
 }
 

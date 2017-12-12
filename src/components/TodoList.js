@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import TodoItem from './TodoItem';
 
 class TodoList extends Component {
@@ -8,22 +9,18 @@ class TodoList extends Component {
 
   render() {
     const { values, removeTodo, completeTodo } = this.props;
-    const checkObject = !(Object.keys(values).length === 0 && values.constructor === Object);
+    const todos = values.todos || [];
+    const completedTodos = values.completedTodos || [];
     return (
       <div className="todo-list">
-        {
-          checkObject ? 
-            values.map((value, key) => {
-              return (
-                <TodoItem key={key}
-                          value={value}
-                          removeTodo={removeTodo}
-                          completeTodo={completeTodo}
-                />
-              )
-            })
-          : null
-        }
+        {_.map(todos, (value, key) => (
+            <TodoItem key={key}
+                      value={value}
+                      removeTodo={removeTodo}
+                      completeTodo={completeTodo}
+                      done={completedTodos.indexOf(value.id) !== -1}
+            />)
+        )}
         <button className="button" type="button"
                 onClick={() => this.clearTodos()}>Clear all
         </button>       

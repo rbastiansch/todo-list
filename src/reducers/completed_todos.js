@@ -1,18 +1,21 @@
 import { COMPLETE_TODO } from '../actions';
 
-const completeTodo = (state = [], id) => {
-  console.log(state);
-  // const completedTodos = state.filter(todo => todo.id === id ? todo.completed = true : todo);
-  return {...state};
+const toogle = id => state => {
+  const ix = state.indexOf(id);
+  if (ix !== -1) {
+    state.splice(ix, 1)
+  } else {
+    state.push(id);
+  }
+  return state;
 }
 
 const completedTodos = (state = [], action) => {
   switch(action.type) {
     case COMPLETE_TODO:
-      const completedTodos = completeTodo(state, action.id);
-      return completedTodos;
+      return toogle(action.id)(state)
     default:
-      return {...state};
+      return state;
   }
 }
 

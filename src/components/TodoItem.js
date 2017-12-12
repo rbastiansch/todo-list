@@ -10,10 +10,10 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { value } = this.props;
+    const { value, done } = this.props;
     const textDecoration = value.completed ? 'line-through' : 'none';
     return (
-      <div className="todo-item">
+      <div className="todo-item" style={done ? styles.done : {}}>
         <p style={{textDecoration}}>{value.text}</p>
         <button className="button" type="button"
                 onClick={() => this.completeTodo(value.id)} >Complete Todo
@@ -25,5 +25,11 @@ class TodoItem extends Component {
     )
   }
 }
+
+const styles = {
+  done: {
+    backgroundColor: '#FF00FF',
+  },
+};
 
 export default TodoItem;
