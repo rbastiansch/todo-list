@@ -6,12 +6,12 @@ import App from './components/App';
 import todoApp from './reducers/index';
 import { addTodo, removeTodo, completeTodo, clearTodos } from "./actions/index";
 
-const store = createStore(todoApp);
+const store = createStore(todoApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const renderApp = () => {
   ReactDOM.render(
     <AppContainer>
-      <App values={store.getState().todos}
+      <App values={store.getState()}
            addTodo={prop => store.dispatch(addTodo(prop))}
            removeTodo={prop => store.dispatch(removeTodo(prop))}
            completeTodo={prop => store.dispatch(completeTodo(prop))}
