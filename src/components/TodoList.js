@@ -18,7 +18,6 @@ class TodoList extends Component {
                       value={value}
                       removeTodo={removeTodo}
                       completeTodo={completeTodo}
-                      done={completedTodos.indexOf(value.id) !== -1}
             />)
         )}
         <button className="button" type="button"
