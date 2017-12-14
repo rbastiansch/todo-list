@@ -13,9 +13,9 @@ const todos = (state = [], action) => {
       const todos = removeById(state, action.id);
       return todos;
     case CLEAR_TODOS:
-      return {}
+      return {};
     default:
-      return state
+      return state;
   }
 }
 

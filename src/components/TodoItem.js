@@ -12,13 +12,17 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { value } = this.props;
+    const { value, isCompleted } = this.props;
     return (
       <div className="todo-item">
         <p>{value.text}</p>
-        <button className="button" type="button"
-                onClick={() => this.completeTodo(value)} >Complete Todo
-        </button>
+        {
+          !isCompleted ? 
+            <button className="button" type="button"
+                    onClick={() => this.completeTodo(value)} >Complete Todo
+            </button>
+          : null
+        }
         <button className="button" type="button"
                 onClick={() => this.removeTodo(value.id)} >Remove
         </button>

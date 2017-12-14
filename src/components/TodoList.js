@@ -8,9 +8,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const { values, removeTodo, completeTodo } = this.props;
-    const todos = values.todos || [];
-    const completedTodos = values.completedTodos || [];
+    const { todos, removeTodo, completeTodo } = this.props;
     return (
       <div className="todo-list">
         {_.map(todos, (value, key) => (
