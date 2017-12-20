@@ -11,6 +11,7 @@ class TodoList extends Component {
     const { todos, removeTodo, completeTodo } = this.props;
     return (
       <div className="todo-list">
+        <hr className="hr"/>
         {_.map(todos, (value, key) => (
             <TodoItem key={key}
                       value={value}

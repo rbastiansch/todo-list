@@ -12,6 +12,7 @@ class CompletedTodoList extends Component {
     const isCompleted = true;
     return (
       <div className="todo-list">
+        <hr className="hr"/>
         {_.map(completedTodos, (value, key) => (
             <TodoItem key={key}
                       value={value}
